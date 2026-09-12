@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "AcademicPaper": {
+      "title": "AcademicPaper",
+      "description": "An academic paper draft containing thesis metadata, equations, references, and modules",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 500 },
+        "author": { "type": "string", "maxLength": 200 },
+        "affiliation": { "type": "string", "maxLength": 300 },
+        "studentId": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "publicationTag": { "type": "string", "maxLength": 300 },
+        "date": { "type": "string", "maxLength": 100 },
+        "keywords": { "type": "string", "maxLength": 500 },
+        "abstract": { "type": "string", "maxLength": 5000 },
+        "keyModules": { "type": "string", "maxLength": 5000 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "author", "abstract"]
+    },
+    "PaymentConfig": {
+      "title": "PaymentConfig",
+      "description": "UPI and Payment QR Code configuration for the application",
+      "type": "object",
+      "properties": {
+        "upiId": { "type": "string", "maxLength": 100 },
+        "payeeName": { "type": "string", "maxLength": 100 },
+        "note": { "type": "string", "maxLength": 200 },
+        "fallbackUrl": { "type": "string", "maxLength": 500 },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["upiId", "payeeName"]
+    },
+    "PublicTemplate": {
+      "title": "PublicTemplate",
+      "description": "Shared academic paper dataset template for students",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/papers/{paperId}": {
+      "schema": "AcademicPaper",
+      "description": "User specific saved academic research drafts and papers"
+    },
+    "/public_templates/{templateId}": {
+      "schema": "PublicTemplate",
+      "description": "Catalog of publicly accessible student academic paper templates"
+    },
+    "/settings/payment": {
+      "schema": "PaymentConfig",
+      "description": "System payment and voluntary support QR settings"
+    }
+  }
+}

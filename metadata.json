@@ -1,0 +1,6 @@
+{
+  "name": "Vaelenor",
+  "description": "An academic report and proof-of-work documentation builder for students with IEEE A4 formatting, research binding, and calculation graph engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
