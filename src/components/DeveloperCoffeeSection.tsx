@@ -34,7 +34,7 @@ export const DeveloperCoffeeSection: React.FC<DeveloperCoffeeSectionProps> = ({
 }) => {
   const { cloudPaymentConfig } = useFirebase();
   const [config, setConfig] = useState<PaymentConfig>({
-    upiId: 'student.artisan@upi',
+    upiId: 'judetenson2@okhdfcbank',
     payeeName: 'Vaelenor Developer',
     note: 'Voluntary Support for Vaelenor',
     fallbackUrl: 'https://buymeacoffee.com/studentdev',
